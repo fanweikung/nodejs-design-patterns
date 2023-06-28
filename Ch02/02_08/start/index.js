@@ -1,7 +1,7 @@
 var PersonBuilder = require("./PersonBuilder");
 
 // Employees
-var sue = new PersonBuilder("Sue").makeEmployee().makeManger(60).build();
+var sue = new PersonBuilder("Sue").makeEmployee().makeManager(60).build();
 var bill = new PersonBuilder("Bill").makeEmployee().makePartTime().build();
 var phil = new PersonBuilder("Phil").makeEmployee().build();
 
@@ -12,3 +12,6 @@ var charles = new PersonBuilder("Charles")
   .build();
 
 var tabbitha = new PersonBuilder("Tabbitha").withMoney(1000).build();
+
+console.log(charles.toString());
+console.log(sue.toString());
