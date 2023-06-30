@@ -15,7 +15,7 @@ var diamond_gold_necklace = new DiamondInventoryItem(gold_necklace);
 
 var diamond_walkman = new DiamondInventoryItem(walkman);
 
-alex.purchase(necklace);
-alex.purchase(walkman);
+alex.purchase(gold_necklace);
+alex.purchase(diamond_walkman);
 
 alex.printStatus();

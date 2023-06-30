@@ -9,4 +9,22 @@ class InventoryItem {
   }
 }
 
-module.exports = InventoryItem;
+class GoldenInventoryItem {
+  constructor(baseItem) {
+    this.name = `Golden ${baseItem.name}`;
+    this.price = baseItem.price + 1000;
+  }
+}
+
+class DiamondInventoryItem {
+  constructor(baseItem) {
+    this.name = `Diamond ${baseItem.name}`;
+    this.price = baseItem.price + 1000;
+    this.cutGlass = true;
+  }
+  print() {
+    console.log(`${this.name} costs a lot of money`);
+  }
+}
+
+module.exports = { InventoryItem, GoldenInventoryItem, DiamondInventoryItem };
