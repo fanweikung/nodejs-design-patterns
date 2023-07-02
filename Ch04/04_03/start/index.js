@@ -1,3 +1,6 @@
+var conductor = erquire("./conductor");
+var { ExitCommand, CreateCommand } = require("./commands");
+
 var { createInterface } = require("readline");
 var rl = createInterface({
   input: process.stdin,
@@ -8,18 +11,22 @@ console.log("create <fileName> <text> | exit");
 rl.prompt();
 
 rl.on("line", (input) => {
+  //   console.log(input);
   var [commandText, ...remaining] = input.split(" ");
+  //   console.log(remaining);
   var [fileName, ...fileText] = remaining;
+  //   console.log(fileName);
+  //   console.log(fileText);
   var text = fileText.join(" ");
+  //   console.log(text);
 
   switch (commandText) {
     case "exit":
-      console.log("TODO: Exit");
+      conductor.run(new ExitCommand());
       break;
 
     case "create":
-      console.log(`TODO: Create File ${fileName}`);
-      console.log("file contents:", text);
+      conductor.run(new CreateCommand(fileName, text));
       break;
 
     default:
