@@ -1,9 +1,11 @@
 var LogStrategy = require("./LogStrategy");
+var config = require("./config.json");
 
 class Logger {
-  constructor() {
+  constructor(strategy = "toConsole") {
     this.logs = [];
-    this.strategy = LogStrategy.toConsole;
+    this.strategy = LogStrategy[strategy];
+    //console.log(LogStrategy[strategy]);
   }
 
   get count() {
@@ -22,4 +24,4 @@ class Logger {
   }
 }
 
-module.exports = new Logger();
+module.exports = new Logger(config.logs.strategy);
